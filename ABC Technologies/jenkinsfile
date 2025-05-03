@@ -1,23 +1,26 @@
 pipeline {
-      agent any
-	  stages {
-        stage('Code Checkout') { 
-            steps { 
-                git 'https://github.com/vasavit07/Industry_Grade_Project.git'
+    agent any
+
+    stages {
+        stage('Code Checkout') {
+            steps {
+                git 'https://github.com/vasavit07/IGP-Project.git'
             }
         }
-        stage('Code Compile'){
+
+        stage('Code compile') {
             steps {
                 sh 'mvn compile'
-               
             }
         }
+
         stage('Unit Test') {
             steps {
                 sh 'mvn test'
             }
         }
-		stage('Code Packaging') {
+
+        stage('Code Packaging') {
             steps {
                 sh 'mvn package'
             }
